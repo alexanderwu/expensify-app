@@ -12,7 +12,7 @@ module.exports = (env) => {
   const isProduction = env === 'production';
 
   return {
-    entry: './src/index.js',
+    entry: ['babel-polyfill', './src/index.js'],
     output: {
       path: path.join(__dirname, 'public', 'dist'),
       filename: 'bundle.js',
@@ -43,6 +43,7 @@ module.exports = (env) => {
               loader: 'css-loader',
               options: {
                 sourceMap: true,
+                url: false,
               },
             },
             {
